@@ -6,7 +6,10 @@ class Admin_management extends CI_Controller{
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->load->model('admin_management_model');
-        $data = array('home_nav_class' => '', 'device_nav_class' => '', 'user_nav_class' => '', 'log_nav_class' => '');
+        $data['home_nav_class'] = "";
+        $data['device_nav_class'] = "";
+        $data['user_nav_class'] = '';
+        $data['log_nav_class'] = '';
         $this->load->vars($data);
     } 
     public function list_admin(){

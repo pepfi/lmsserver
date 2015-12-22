@@ -6,7 +6,10 @@ class Home extends CI_Controller{
         $this->load->helper('url');
     }
     public function index(){
-        $data = array('home_nav_class' => "class='active'", 'device_nav_class' => "", 'user_nav_class' => '', 'log_nav_class' => '');
+        $data['home_nav_class'] = "class='active'";
+        $data['device_nav_class'] = '';
+        $data['user_nav_class'] = '';
+        $data['log_nav_class'] = '';
         $this->load->view('admin/header', $data);
         $this->load->view('admin/home');
         $this->load->view('admin/footer');     
