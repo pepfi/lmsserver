@@ -5,15 +5,15 @@ class Device extends CI_Controller{
         $this->load->library('session');
         $this->load->model('device_model');
     }
-    public function index(){
+    public function list_deviceinfo(){
         $data['home_nav_class'] = "";
         $data['device_nav_class'] = "class='active'";
         $data['user_nav_class'] = '';
         $data['log_nav_class'] = '';
-        $data['deviceinfo'] = $this->device_model->devicesInfo();
+        $data['deviceinfo'] = $this->device_model->list_deviceinfo();
         $this->load->view('admin/header', $data);
         $this->load->view('admin/device', $data);
-        $this->load->view('admin/footer');
+        $this->load->view('admin/footer');        
     }
     
 }

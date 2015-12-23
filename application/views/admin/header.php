@@ -22,7 +22,7 @@
             </div>
             <div class="col-md-1">
                 <ul class="nav nav-pills">
-                    <li <?php echo $device_nav_class;?>><a href="/device/index">设备管理</a></li>
+                    <li <?php echo $device_nav_class;?>><a href="/device/list_deviceinfo">设备管理</a></li>
                 </ul>
             </div>
             <div class="col-md-1">
