@@ -40,13 +40,13 @@
 </div>
 <div class="row" style='margin-top:3px'>
     <div class='col-md-1' style="padding-left:11px"><h6>首次注册时间</h6></div>
-    <div class='col-md-2'><input type="text" class="form-control" id="" placeholder="Email"></div>
+    <div class='col-md-2'><input type="text" class="sang_Calender" id="" placeholder="Email" name='first_registration_time_start'></div>
     <div class='col-md-1' style="padding-top:6px;padding-left:11px"><-----------></div>
-    <div class='col-md-2'><input type="text" class="form-control" id="" placeholder="Email"></div>
+    <div class='col-md-2'><input type="text" class="sang_Calender" id="" placeholder="Email" name='first_registration_time_end'></div>
     <div class='col-md-1' style="padding-left:11px"><h6>最后注册时间</h6></div>
-    <div class='col-md-2'><input type="text" class="form-control" id="" placeholder="Email"></div>
+    <div class='col-md-2'><input type="text" class="sang_Calender" id="" placeholder="Email" name='last_registration_time_start'></div>
     <div class='col-md-1' style="padding-top:6px;padding-left:11px"><-----------></div>
-    <div class='col-md-2'><input type="text" class="form-control" id="" placeholder="Email"></div>
+    <div class='col-md-2'><input type="text" class="sang_Calender" id="" placeholder="Email" name='last_registration_time_end'></div>
 </div>
 <div class="row" style='margin-top:3px'>
     <div class='col-md-1' style="padding-top:6px;padding-left:11px">设备编号</div>
@@ -102,4 +102,4 @@
         <?php endforeach;?>
     </table>
 </div>
-<script src="<?php echo base_url('system/libraries/Javascript/WdatePicker.js');?>" type="text/javascript"></script>
+<script src="<?php echo base_url('system/libraries/Javascript/datetime.js');?>" type="text/javascript"></script>

@@ -18,6 +18,18 @@ class Device_model extends CI_Model{
                 $this->db->like($key,$value);
             }
         }
+        if($this->input->post('first_registration_time_start')){
+            $this->db->where('first_registration_time >', $this->input->post('first_registration_time_start'));
+        }
+        if($this->input->post('first_registration_time_end')){
+            $this->db->where('first_registration_time <', $this->input->post('first_registration_time_end'));
+        }
+        if($this->input->post('last_registration_time_start')){
+            $this->db->where('last_registration_time >', $this->input->post('last_registration_time_start'));
+        }
+        if($this->input->post('last_registration_time_end')){
+            $this->db->where('last_registration_time <', $this->input->post('last_registration_time_end'));
+        }
         $query = $this->db->get('deviceinfo');
         return $query;
     }
