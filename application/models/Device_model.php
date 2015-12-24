@@ -4,7 +4,11 @@ class Device_model extends CI_Model{
         parent::__construct();
         $this->load->database();
     }
-    public function list_deviceinfo(){
+    public function index(){
+        $sql = "select mac,state,ip_address,ip_location,firmware_version,content_version,first_registration_time,last_registration_time from deviceinfo";
+        return $this->db->query($sql);
+    }
+    public function search(){
         $search_array = array(
             'mac' => trim($this->input->post('mac')),
             'state' => trim($this->input->post('state')),
@@ -30,6 +34,9 @@ class Device_model extends CI_Model{
         if($this->input->post('last_registration_time_end')){
             $this->db->where('last_registration_time <', $this->input->post('last_registration_time_end'));
         }
+        //获得数据库的数据条数
+        //分页
+        //前200
         $query = $this->db->get('deviceinfo');
         return $query;
     }

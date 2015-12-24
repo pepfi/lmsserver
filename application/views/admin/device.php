@@ -1,5 +1,5 @@
 <div class="row">AP查询</div>
-<form action='/device/list_deviceinfo' method="post">
+<form action='/device/search' method="post">
 <div class="row" style='margin-top:3px'>
     <div class='col-md-1' style="padding-top:6px;padding-left:11px">MAC</div>
     <div class='col-md-2'><input type="text" name='mac' class="form-control" id="" placeholder="MAC"></div>

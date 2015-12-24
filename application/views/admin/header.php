@@ -17,22 +17,22 @@
             <div class="col-md-1"></div>
             <div class="col-md-1">
                 <ul class="nav nav-pills">
-                    <li <?php echo $home_nav_class;?>><a href="/home/index">首页</a></li>
+                    <li <?php echo $home_nav_class;?>><a href="/home">首页</a></li>
                 </ul>
             </div>
             <div class="col-md-1">
                 <ul class="nav nav-pills">
-                    <li <?php echo $device_nav_class;?>><a href="/device/list_deviceinfo">设备管理</a></li>
+                    <li <?php echo $device_nav_class;?>><a href="/device/">设备管理</a></li>
                 </ul>
             </div>
             <div class="col-md-1">
                 <ul class="nav nav-pills">
-                    <li <?php echo $user_nav_class;?>><a href="/user/index">用户管理</a></li>
+                    <li <?php echo $user_nav_class;?>><a href="/user/">用户管理</a></li>
                 </ul>
             </div>
             <div class="col-md-1">
                 <ul class="nav nav-pills">
-                    <li <?php echo $log_nav_class;?>><a href="/log/index">日志</a></li>
+                    <li <?php echo $log_nav_class;?>><a href="/log/">日志</a></li>
                 </ul>
             </div>
             <div class="col-md-1"></div>

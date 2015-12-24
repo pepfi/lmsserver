@@ -6,6 +6,10 @@ class Home extends CI_Controller{
         $this->load->helper('url');
     }
     public function index(){
+        if($this->session->userdata('username') == null){
+            redirect('admin/validate_credentials');
+            exit;
+        }
         $data['home_nav_class'] = "class='active'";
         $data['device_nav_class'] = '';
         $data['user_nav_class'] = '';
