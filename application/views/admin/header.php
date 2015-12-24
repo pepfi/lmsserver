@@ -42,8 +42,8 @@
                       <li class="dropdown">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['username']; ?><span class="caret"></span></a>
                           <ul class="dropdown-menu">
-                              <li><a href="/admin_management/list_admin">查看管理员</a></li>
-                            <li><a href="/admin_management/add_admin">添加管理员</a></li>
+                              <li><a href="/admin/list_admin">查看管理员</a></li>
+                            <li><a href="/admin/add_admin">添加管理员</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="/logout/index">退出</a></li>
                           </ul>

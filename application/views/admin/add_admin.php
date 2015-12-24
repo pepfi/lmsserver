@@ -1,6 +1,6 @@
 <div class="row"><?php echo $_SESSION['username'];?>>>添加管理员</div>
 <div class="row">&nbsp;</div>
-<?php echo form_open('admin_management/add_admin');?>
+<?php echo form_open('admin/add_admin');?>
 <div class='row'>
     <div class="col-md-2"></div>
     <div class="col-md-2"></div>

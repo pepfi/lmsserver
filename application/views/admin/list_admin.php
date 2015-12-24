@@ -24,7 +24,7 @@
         echo "<div class='col-md-2'>".$rank."</div>";
         $authorization = ($row->blocked == 0)?"是":"否";
         echo "<div class='col-md-1'>".$authorization."</div>";
-        echo "<div class='col-md-1'><a type='button' href='modify_admin_updatedata/".$row->id."' class='btn btn-primary btn-xs'>执行</a></div>";       
+        echo "<div class='col-md-1'><a type='button' href='modify_admin/".$row->id."' class='btn btn-primary btn-xs'>执行</a></div>";       
 ?>
 <div class='col-md-1'><button type='button' onclick="del_admin(<?php echo $row->id;?>)" class='btn btn-primary btn-xs'>执行</button></div>
 <?php echo "</div>";

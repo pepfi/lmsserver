@@ -1,6 +1,6 @@
 <div class="row"><?php echo $_SESSION['username'];?>>>修改管理员</div>
 <div class="row">&nbsp;</div>
-<?php echo form_open('admin_management/modify_admin_updatedata');?>
+<?php echo form_open('admin/modify_admin');?>
 <div class='row'>
     <div class="col-md-2"></div>
     <div class="col-md-2"></div>
