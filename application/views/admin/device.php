@@ -69,6 +69,16 @@
     <div class="col-md-1"><button type="button" class="btn btn-default btn-xs">上传</button></div>
     <div class="col-md-1"><button type="button" class="btn btn-default btn-xs">下发命令</button></div>
     <div class="col-md-1"><button type="button" class="btn btn-default btn-xs">帮助</button></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-1"></div>
+    <div class="col-md-1">每页显示：</div>
+    <div class="col-md-1">
+        <a href="/device/index/per_page/1">1</a>
+        <a href="/device/index/per_page/2">2</a>
+        <a href="/device/index/per_page/3">3</a>
+        <a href="/device/index/per_page/4">4</a>
+    </div>
+    
 </div>
 <div>
     <table width='100%'>
@@ -102,4 +112,5 @@
         <?php endforeach;?>
     </table>
 </div>
+<div class="row"><div class='col-md-9'></div><div class='col-md-3'><?php echo $page;?></div></div>
 <script src="<?php echo base_url('system/libraries/Javascript/datetime.js');?>" type="text/javascript"></script>

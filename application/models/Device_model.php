@@ -4,8 +4,8 @@ class Device_model extends CI_Model{
         parent::__construct();
         $this->load->database();
     }
-    public function index(){
-        $sql = "select mac,state,ip_address,ip_location,firmware_version,content_version,first_registration_time,last_registration_time from deviceinfo";
+    public function index($offset, $pagesize){
+        $sql = "select mac,state,ip_address,ip_location,firmware_version,content_version,first_registration_time,last_registration_time from deviceinfo limit $offset,$pagesize";
         return $this->db->query($sql);
     }
     public function search(){
