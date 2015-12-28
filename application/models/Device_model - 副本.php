@@ -45,27 +45,25 @@ class Device_model extends CI_Model{
         $sql = $this->db->get_compiled_select('deviceinfo');
 
         $sql .= " limit $offset,$pagesize";
-//        echo $sql;
+        echo $sql;
         $input_null = "limit";
         if(substr($sql, 262, 5) != $input_null){//首次有search条件会执行该语句，点击翻页或设置每页条数时不会执行，更改search条件再次执行
             echo "session赋值";
-            $this->session->set_userdata('pagesize',substr($sql, 276,1));//get pagesize
+            $this->session->set_userdata('pagesize',substr($sql, 276,1));
             $this->session->set_userdata('sql', $sql);            
         }
-        if($pagesize != $this->session->userdata('pagesize')){//update pagesize
-            $sql = strtr($this->session->userdata('sql'), "limit 0,".$this->session->userdata('pagesize'), "limit 0,".$pagesize);
-            $this->session->set_userdata('sql', $sql);
-            $this->session->set_userdata('pagesize', $pagesize);
+        if($pagesize != $this->session->userdata('pagesize')){
+            strtr($this->session->userdata('sql'), "limit 0,",);
+            $this->session->set_userdata($sql,);
         }
 
-//        if($offset == 0){
-//            $limit_replace = "limit 0";
-//        }else {
-////            $limit_replace = "limit ".$this->uri->segment(3);
-            $limit_replace = "limit ".$offset;
-//        }
+        if($offset == 0){
+            $limit_replace = "limit 0";
+        }else {
+            $limit_replace = "limit ".$this->uri->segment(3);
+        }
         $sql =  strtr($this->session->userdata('sql'), "limit 0", $limit_replace);
-//        echo $sql;                       
+        echo $sql;
         return $this->db->query($sql);
 
     }

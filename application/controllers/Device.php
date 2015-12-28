@@ -9,13 +9,13 @@ class Device extends CI_Controller{
         $this->load->library('pagination');
     }
     
-    public function index(){
-        if($this->session->userdata('username') == null){
-            redirect('admin/validate_credentials');
-            exit;
-        }
-        
-        //Each page shows given data
+    //get the nums of device
+    public function device_nums(){
+        return $this->device_model->device_nums();
+    }
+    
+    //per page shows nums given    
+    public function nums_per_page(){        
         if($this->uri->segment(4)){
             switch($this->uri->segment(4)){
                 case 1:
@@ -30,15 +30,25 @@ class Device extends CI_Controller{
                 case 4:
                     $this->session->set_userdata('pageSize',4);
             }        
-        }
-        
-        //To construct the paging
-        $config['base_url'] = 'http://127.0.0.1/device/index/';
-        $config['total_rows'] = 10;        
+        }        
+    }
+    
+    //forbid illegal access
+    public function illegal_access(){
+        if($this->session->userdata('username') == null){
+            redirect('admin/validate_credentials');
+            exit;
+        }        
+    }
+    
+    //To construct the paging
+    public function page($method, $device_nums){
+        $config['base_url'] = "http://127.0.0.1/device/".$method."/";
+        $config['total_rows'] = $device_nums;        
         if($this->session->userdata('pageSize')){//Url increasing span
             $config['per_page'] = $this->session->userdata('pageSize');    
         }else {
-            $config['per_page'] = 1;        
+            $config['per_page'] = 1; //default nums per page       
         }        
         $config['first_link'] = '首页';        
         $config['last_link'] = '尾页';
@@ -56,13 +66,27 @@ class Device extends CI_Controller{
         }else {
             $offset = ($this->uri->segment(3) == null)?0:$this->uri->segment(3);
         }
-        $pageSize = $config['per_page'];//the number of data each page
+        $pageSize = $config['per_page'];//the number of data each page 
         
+        $this->session->set_userdata('offset', $offset);
+        $this->session->set_userdata('final_pagesize', $pageSize);
+        $this->load->vars($data);
+    }
+    
+    public function index(){
+        $this->illegal_access();
+        $this->nums_per_page();
+        $this->page("index", $this->device_nums());
+ 
         $data['home_nav_class'] = "";
         $data['device_nav_class'] = "class='active'";
         $data['user_nav_class'] = '';
         $data['log_nav_class'] = '';
-        $data['deviceinfo'] = $this->device_model->index($offset, $pageSize);
+        
+        $data['deviceinfo'] = $this->device_model->deviceinfo($this->session->userdata('offset'), $this->session->userdata('final_pagesize'));
+        
+        $data['method'] = "index";//for link
+        
         $this->load->view('admin/header', $data);
         $this->load->view('admin/device', $data);
         $this->load->view('admin/footer');        
@@ -73,13 +97,17 @@ class Device extends CI_Controller{
         $data['device_nav_class'] = "class='active'";
         $data['user_nav_class'] = '';
         $data['log_nav_class'] = '';
-        $data['page'] = '';
-        $data['deviceinfo'] = $this->device_model->search();
+        
+        $this->nums_per_page();
+        $this->page("search", 10);
+        
+        $data['deviceinfo'] = $this->device_model->search($this->session->userdata('offset'), $this->session->userdata('final_pagesize'));
+        
+        $data['method'] = "search";//for link
+        
         $this->load->view('admin/header', $data);
         $this->load->view('admin/device', $data);
         $this->load->view('admin/footer');         
     }
-    
-    
-    
+        
 }

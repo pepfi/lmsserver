@@ -22,7 +22,7 @@
             </div>
             <div class="col-md-1">
                 <ul class="nav nav-pills">
-                    <li <?php echo $device_nav_class;?>><a href="/device/">设备管理</a></li>
+                    <li <?php echo $device_nav_class;?>><a href="/device">设备管理</a></li>
                 </ul>
             </div>
             <div class="col-md-1">
@@ -45,7 +45,7 @@
                               <li><a href="/admin/list_admin">查看管理员</a></li>
                             <li><a href="/admin/add_admin">添加管理员</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="/logout/index">退出</a></li>
+                            <li><a href="/admin/logout">退出</a></li>
                           </ul>
                       </li>
                 </ul>

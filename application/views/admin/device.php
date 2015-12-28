@@ -40,13 +40,13 @@
 </div>
 <div class="row" style='margin-top:3px'>
     <div class='col-md-1' style="padding-left:11px"><h6>首次注册时间</h6></div>
-    <div class='col-md-2'><input type="text" class="sang_Calender" id="" placeholder="Email" name='first_registration_time_start'></div>
+    <div class='col-md-2'><input type="text" class="sang_Calender" id="" placeholder="time_start" name='first_registration_time_start'></div>
     <div class='col-md-1' style="padding-top:6px;padding-left:11px"><-----------></div>
-    <div class='col-md-2'><input type="text" class="sang_Calender" id="" placeholder="Email" name='first_registration_time_end'></div>
+    <div class='col-md-2'><input type="text" class="sang_Calender" id="" placeholder="time_end" name='first_registration_time_end'></div>
     <div class='col-md-1' style="padding-left:11px"><h6>最后注册时间</h6></div>
-    <div class='col-md-2'><input type="text" class="sang_Calender" id="" placeholder="Email" name='last_registration_time_start'></div>
+    <div class='col-md-2'><input type="text" class="sang_Calender" id="" placeholder="time_start" name='last_registration_time_start'></div>
     <div class='col-md-1' style="padding-top:6px;padding-left:11px"><-----------></div>
-    <div class='col-md-2'><input type="text" class="sang_Calender" id="" placeholder="Email" name='last_registration_time_end'></div>
+    <div class='col-md-2'><input type="text" class="sang_Calender" id="" placeholder="time_end" name='last_registration_time_end'></div>
 </div>
 <div class="row" style='margin-top:3px'>
     <div class='col-md-1' style="padding-top:6px;padding-left:11px">设备编号</div>
@@ -73,10 +73,16 @@
     <div class="col-md-1"></div>
     <div class="col-md-1">每页显示：</div>
     <div class="col-md-1">
+        <?php echo "<a href='/device/".$method."/per_page/1'>1</a>"; ?>
+        <?php echo "<a href='/device/".$method."/per_page/2'>2</a>"; ?>
+        <?php echo "<a href='/device/".$method."/per_page/3'>3</a>"; ?>
+        <?php echo "<a href='/device/".$method."/per_page/4'>4</a>"; ?>
+<!--
         <a href="/device/index/per_page/1">1</a>
         <a href="/device/index/per_page/2">2</a>
         <a href="/device/index/per_page/3">3</a>
         <a href="/device/index/per_page/4">4</a>
+-->
     </div>
     
 </div>

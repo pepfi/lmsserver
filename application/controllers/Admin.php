@@ -128,5 +128,11 @@ class Admin extends CI_Controller {
                 }
 
         }       
-    }        
+    }
+    
+    public function logout(){
+        $this->session->sess_destroy();
+        $data['error'] = '';
+        $this->load->view('admin/login_form', $data);
+    }
 }
