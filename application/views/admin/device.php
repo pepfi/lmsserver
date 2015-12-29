@@ -62,29 +62,31 @@
 <div class="row" style="border-bottom:1px solid black">&nbsp;</div>
 <div class="row">AP分配状态列表</div>
 <div class="row" style="margin-bottom:4px">
-    <div class="col-md-1"><button type="button" class="btn btn-default btn-xs">删除</button></div>
     <div class="col-md-1"><button type="button" class="btn btn-default btn-xs">批量分配设备</button></div>
     <div class="col-md-1"><button type="button" class="btn btn-default btn-xs">解除绑定</button></div>
-    <div class="col-md-1"><button type="button" class="btn btn-default btn-xs">下载</button></div>
-    <div class="col-md-1"><button type="button" class="btn btn-default btn-xs">上传</button></div>
-    <div class="col-md-1"><button type="button" class="btn btn-default btn-xs">下发命令</button></div>
-    <div class="col-md-1"><button type="button" class="btn btn-default btn-xs">帮助</button></div>
-    <div class="col-md-2"></div>
-    <div class="col-md-1"></div>
-    <div class="col-md-1">每页显示：</div>
     <div class="col-md-1">
-        <?php echo "<a href='/device/".$method."/per_page/1'>1</a>"; ?>
-        <?php echo "<a href='/device/".$method."/per_page/2'>2</a>"; ?>
-        <?php echo "<a href='/device/".$method."/per_page/3'>3</a>"; ?>
-        <?php echo "<a href='/device/".$method."/per_page/4'>4</a>"; ?>
-<!--
-        <a href="/device/index/per_page/1">1</a>
-        <a href="/device/index/per_page/2">2</a>
-        <a href="/device/index/per_page/3">3</a>
-        <a href="/device/index/per_page/4">4</a>
--->
+        <button type="button" class="btn btn-default btn-xs">下载</button>
+        <button type="button" class="btn btn-default btn-xs">上传</button>
     </div>
-    
+    <div class="col-md-1"><button type="button" class="btn btn-default btn-xs">下发命令</button></div>
+    <div class="col-md-1">
+        <button type="button" class="btn btn-default btn-xs">帮助</button>
+        <button type="button" class="btn btn-default btn-xs">删除</button>
+    </div>
+    <div class="col-md-1" style="padding-left:25px">每页显示：</div>
+    <div class="col-md-1">
+        <?php echo "<a href='/device/".$method."/per_page/3'>3</a>"; ?>
+        <?php echo "<a href='/device/".$method."/per_page/6'>6</a>"; ?>
+        <?php echo "<a href='/device/".$method."/per_page/9'>9</a>"; ?>
+        <?php echo "<a href='/device/".$method."/per_page/12'>12</a>"; ?>
+    </div>
+    <div class="col-md-3"><?php echo $page;?></div>
+    <div class="col-md-2">
+        跳到<input type='text' id='to_page' style='width:30px;height:20px'>页
+        <input type="hidden" id="url" value="<?php echo base_url($controller.'/'.$method);?>">
+        <input type="hidden" id="final_pagesize" value="<?php echo $this->session->userdata('final_pagesize');?>">
+        <input type="button" value="确定" class='btn btn-default btn-xs' onclick=jump()>
+    </div>
 </div>
 <div>
     <table width='100%'>
@@ -118,5 +120,23 @@
         <?php endforeach;?>
     </table>
 </div>
-<div class="row"><div class='col-md-9'></div><div class='col-md-3'><?php echo $page;?></div></div>
+<div class="row">
+    <div class='col-md-5'></div>
+    <div class='col-md-1'><?php echo '共'.ceil($device_nums/$this->session->userdata('final_pagesize')).'页';?></div>
+    <div class='col-md-1'><?php echo '共'.$device_nums.'条';?></div>
+    <div class='col-md-3'><?php echo $page;?></div>
+    <div class="col-md-2">
+        跳到<input type='text' id='to_page' style='width:30px;height:20px'>页
+        <input type="hidden" id="url" value="<?php echo base_url($controller.'/'.$method);?>">
+        <input type="hidden" id="final_pagesize" value="<?php echo $this->session->userdata('final_pagesize');?>">
+        <input type="button" value="确定" class='btn btn-default btn-xs' onclick=jump()>
+    </div>
+</div>
 <script src="<?php echo base_url('system/libraries/Javascript/datetime.js');?>" type="text/javascript"></script>
+<script language="LiveScript"> 
+function jump(){ 
+    var url =document.getElementById("url").value+'/'+
+            (document.getElementById("to_page").value-1)*document.getElementById('final_pagesize').value;
+    window.open(url, '_self');    
+} 
+</script> 

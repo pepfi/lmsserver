@@ -18,17 +18,17 @@ class Device extends CI_Controller{
     public function nums_per_page(){        
         if($this->uri->segment(4)){
             switch($this->uri->segment(4)){
-                case 1:
-                    $this->session->set_userdata('pageSize',1);
-                    break;
-                case 2:
-                    $this->session->set_userdata('pageSize',2);
-                    break;
                 case 3:
                     $this->session->set_userdata('pageSize',3);
                     break;
-                case 4:
-                    $this->session->set_userdata('pageSize',4);
+                case 6:
+                    $this->session->set_userdata('pageSize',6);
+                    break;
+                case 9:
+                    $this->session->set_userdata('pageSize',9);
+                    break;
+                case 12:
+                    $this->session->set_userdata('pageSize',12);
             }        
         }        
     }
@@ -43,12 +43,12 @@ class Device extends CI_Controller{
     
     //To construct the paging
     public function page($method, $device_nums){
-        $config['base_url'] = "http://127.0.0.1/device/".$method."/";
+        $config['base_url'] = base_url("/device/".$method."/");
         $config['total_rows'] = $device_nums;        
         if($this->session->userdata('pageSize')){//Url increasing span
             $config['per_page'] = $this->session->userdata('pageSize');    
         }else {
-            $config['per_page'] = 1; //default nums per page       
+            $config['per_page'] = 6; //default nums per page       
         }        
         $config['first_link'] = '首页';        
         $config['last_link'] = '尾页';
@@ -76,7 +76,8 @@ class Device extends CI_Controller{
     public function index(){
         $this->illegal_access();
         $this->nums_per_page();
-        $this->page("index", $this->device_nums());
+        $data['device_nums']= $this->device_model->device_nums();
+        $this->page("index", $data['device_nums']);
  
         $data['home_nav_class'] = "";
         $data['device_nav_class'] = "class='active'";
@@ -84,7 +85,8 @@ class Device extends CI_Controller{
         $data['log_nav_class'] = '';
         
         $data['deviceinfo'] = $this->device_model->deviceinfo($this->session->userdata('offset'), $this->session->userdata('final_pagesize'));
-        
+  
+        $data['controller'] = 'device';
         $data['method'] = "index";//for link
         
         $this->load->view('admin/header', $data);
@@ -99,10 +101,13 @@ class Device extends CI_Controller{
         $data['log_nav_class'] = '';
         
         $this->nums_per_page();
-        $this->page("search", 10);
+        $data['search_nums'] = $this->device_model->search_nums()->num_rows();
+        $this->page('search', $data['search_nums']);
+        $data['device_nums'] = $data['search_nums'];
         
         $data['deviceinfo'] = $this->device_model->search($this->session->userdata('offset'), $this->session->userdata('final_pagesize'));
-        
+
+        $data['controller'] = 'device';        
         $data['method'] = "search";//for link
         
         $this->load->view('admin/header', $data);
