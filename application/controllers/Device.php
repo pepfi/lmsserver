@@ -114,5 +114,14 @@ class Device extends CI_Controller{
         $this->load->view('admin/device', $data);
         $this->load->view('admin/footer');         
     }
+    
+    public function order(){
+        $Macs_order_string = $this->uri->segment(3);
+        $Macs_order = explode('_', $Macs_order_string);
+        $order = $Macs_order[count($Macs_order)-1];
+        $order = str_replace('%20', ' ', $order);
+        $Macs_order[count($Macs_order)-1] = $order;
+        var_dump($Macs_order);
+    }
         
 }
