@@ -16,6 +16,14 @@ function getMac(){
 //
 function openDiv(newDivID)
 {
+    //one mac selected at least
+    var Macs_string = getMac();
+    if(!Macs_string){
+        alert('请至少选择一项');
+        return;
+    }
+    
+    //遮罩层
     var newMaskID = "mask";  //遮罩层id
     var  newMaskWidth =document.body.scrollWidth;//遮罩层宽度
     var  newMaskHeight =document.body.scrollHeight;//遮罩层高度    
@@ -133,7 +141,6 @@ function openDiv(newDivID)
     var orderButton = submit_Div.firstChild;   
     orderButton.onclick = function(){
         var order_string = order.value;
-        var Macs_string = getMac();
         var Macs_order_string = Macs_string + order_string;
         window.open('/device/order/'+Macs_order_string, '_self');
     }

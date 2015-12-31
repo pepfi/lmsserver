@@ -6,10 +6,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin extends CI_Controller {
     public function __construct(){
         parent::__construct();
-        $this->load->library('session');
-        $this->load->helper('url');        
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+//        $this->load->library('session');
+//        $this->load->helper('url');        
+//        $this->load->helper('form');
+//        $this->load->library('form_validation');
         $this->load->model('admin_model');
         $data['home_nav_class'] = "";
         $data['device_nav_class'] = "";

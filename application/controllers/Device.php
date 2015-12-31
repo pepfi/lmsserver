@@ -3,8 +3,8 @@ class Device extends CI_Controller{
     
     public function __construct(){
         parent::__construct();
-        $this->load->helper('url');
-        $this->load->library('session');
+//        $this->load->helper('url');
+//        $this->load->library('session');
         $this->load->model('device_model');
         $this->load->library('pagination');
     }
@@ -76,7 +76,13 @@ class Device extends CI_Controller{
     public function index(){
         $this->illegal_access();
         $this->nums_per_page();
-        $data['device_nums']= $this->device_model->device_nums();
+        if(!$this->session->userdata('device_nums')){//run one time
+            $data['device_nums']= $this->device_model->device_nums();
+            $this->session->set_userdata('device_nums', $data['device_nums']);
+        }
+        else{//run from second time
+            $data['device_nums'] = $this->session->userdata('device_nums');
+        }
         $this->page("index", $data['device_nums']);
  
         $data['home_nav_class'] = "";

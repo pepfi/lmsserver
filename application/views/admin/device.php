@@ -92,7 +92,7 @@
 <div>
     <table width='100%'>
         <tr style='background:#337ab7;color:white'>
-            <td width='5%'>&nbsp;&nbsp;<input type="checkbox" onclick = "checkall(this);"></td>
+            <td width='5%'>&nbsp;&nbsp;<input type="checkbox" id="all_check"></td>
             <td width='13%'>MAC</td>
             <td width='11%'>IpAddress</td>
             <td width='8%'>IP归属地</td>
@@ -145,4 +145,3 @@ function jump(){
     window.open(url, '_self');    
 } 
 </script> 
-
