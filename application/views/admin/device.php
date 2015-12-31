@@ -92,7 +92,7 @@
 <div>
     <table width='100%'>
         <tr style='background:#337ab7;color:white'>
-            <td width='5%'>&nbsp;&nbsp;<input type="checkbox" id="all_check"></td>
+            <td width='5%'>&nbsp;&nbsp;<input type="checkbox" id="all_check" onclick="cli('checkedDevice')"/></td>
             <td width='13%'>MAC</td>
             <td width='11%'>IpAddress</td>
             <td width='8%'>IP归属地</td>
@@ -106,7 +106,7 @@
         </tr>
         <?php foreach($deviceinfo->result() as $row):?>
         <tr>
-            <td width='5%'>&nbsp;&nbsp;<input type="checkbox" name="checkedDevice"></td>
+            <td width='5%'>&nbsp;&nbsp;<input type="checkbox" name="checkedDevice" /></td>
             <td name='mac' width='13%'><?php echo $row->mac;?></td>
             <td width='11%'><?php echo $row->ip_address;?></td>
             <td width='8%'><?php echo $row->ip_location;?></td>
@@ -135,6 +135,7 @@
 </div>
 <script src="<?php echo base_url('system/libraries/Javascript/datetime.js');?>" type="text/javascript"></script>
 <script src="<?php echo base_url('system/libraries/Javascript/order.js');?>" type="text/javascript"></script>
+<script src="<?php echo base_url('system/libraries/Javascript/checked_all.js');?>" type="text/javascript"></script>
 <script language="LiveScript"> 
 function jump(){
     var offset = (document.getElementById("to_page").value - 1)*document.getElementById('final_pagesize').value;
@@ -145,3 +146,5 @@ function jump(){
     window.open(url, '_self');    
 } 
 </script> 
+
+
