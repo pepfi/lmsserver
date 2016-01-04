@@ -133,9 +133,9 @@
         <input type="button" value="确定" class='btn btn-default btn-xs' onclick=jump()>
     </div>
 </div>
-<script src="<?php echo base_url('system/libraries/Javascript/datetime.js');?>" type="text/javascript"></script>
-<script src="<?php echo base_url('system/libraries/Javascript/order.js');?>" type="text/javascript"></script>
-<script src="<?php echo base_url('system/libraries/Javascript/checked_all.js');?>" type="text/javascript"></script>
+<script src="<?php echo base_url('application\views\global\custom\js\datetime.js');?>" type="text/javascript"></script>
+<script src="<?php echo base_url('application\views\global\custom\js\order.js');?>" type="text/javascript"></script>
+<script src="<?php echo base_url('application\views\global\custom\js\checked_all.js');?>" type="text/javascript"></script>
 <script language="LiveScript"> 
 function jump(){
     var offset = (document.getElementById("to_page").value - 1)*document.getElementById('final_pagesize').value;
@@ -145,6 +145,6 @@ function jump(){
     var url =document.getElementById("jump_url").value+'/'+ offset;        
     window.open(url, '_self');    
 } 
-</script> 
+</script>
 
 

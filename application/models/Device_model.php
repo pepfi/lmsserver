@@ -95,4 +95,14 @@ class Device_model extends CI_Model{
 
         return $this->db->query($sql);
     }
+    
+    public function order($macs){
+        $sql = "insert into macs_order ";
+        $array_length = count($macs);
+        for($i = 0; $i < $array_length-1; $i++){
+            $sql .= "select '".$macs[$i]."', '".$macs[$array_length-1]."' union all ";
+        }
+        $sql = substr($sql, 0, -11);
+        return $this->db->query($sql);  
+    }
 }
