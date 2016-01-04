@@ -7,17 +7,6 @@
     <title>Bootstrap 101 Template</title>
     <link href="<?php echo base_url(); ?>application/views/global/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>application/views/global/custom/css/header_footer.css" rel="stylesheet">
-    <!-- 百度站长统计-->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?3cd785af9e1e68ff0ff3e4d7350e583a";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-    </script>
-    <!-- 百度站长统计-->
   </head>
   <body>
     <div class="container">
