@@ -1,3 +1,4 @@
 # lmsserver
-my lms server
-create project
+lmsserver1 new platform new product
+
+bootstrap view
